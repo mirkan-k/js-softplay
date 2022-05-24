@@ -31,11 +31,10 @@ Inputs number of Children and Adults leaving,
 ;
 
 Function 3: occupancy()
-const totalGuests = {
+return {
   adults: ,
   children:
 }
-Return adults and children into occupancy object
 ;
 */
 
@@ -46,24 +45,22 @@ function enter(numAdults, numChildren) {
     return true
     // return `${numAdults} Adults & ${numChildren} Children entered.`
   }
-  else {
-    return false
-  }
+  return false
 }
 // console.log(enter(4, 2))
 // console.log(adults, children)
 
 function leave(numAdults, numChildren) {
-  if (numAdults < numChildren) {
+  if (numAdults < numChildren ||
+      numAdults > adults ||
+      numChildren > children ||
+      children - numChildren > adults - numAdults) {
     return false
-  } else if (numAdults > adults || numChildren > children || children - numChildren > adults - numAdults) {
-    return false
-  } else {
-    adults -= numAdults;
-    children -= numChildren;
-    return true
-    // return `${adults} Adults & ${children} Children have now left.`
   }
+  adults -= numAdults;
+  children -= numChildren;
+  return true
+  // return `${adults} Adults & ${children} Children have now left.`
 }
 // console.log(leave(2, 1))
 // console.log('Guests left:', adults, children)
